@@ -544,11 +544,16 @@ void GRAYCODE::transport_camera_projector(cv::Mat &src, cv::Mat &dst)
 		for( int x = 0; x < PRJ_WIDTH; x++ ) {
 			cv::Point p = c->CamPro[y][x];
 			if( p.x != -1 ) {
-				if(src_resize.at<uchar>( p.y, 3*p.x ) != 0 && src_resize.at<uchar>( p.y, 3*p.x+1 ) != 0 && src_resize.at<uchar>( p.y, 3*p.x+2 ) != 0){
+				if(src_resize.at<uchar>( p.y, p.x ) != 0){
+				//if(src_resize.at<uchar>( p.y, 3*p.x ) != 0 && src_resize.at<uchar>( p.y, 3*p.x+1 ) != 0 && src_resize.at<uchar>( p.y, 3*p.x+2 ) != 0){
 					//printf("x:%d, y:%d, p.x:%d, p.y:%d\n", x, y, p.x, p.y);
-					dst.at<uchar>( y, 3*x ) = src_resize.at<uchar>( p.y, 3*p.x );      // B
-					dst.at<uchar>( y, 3*x+1 ) = src_resize.at<uchar>( p.y, 3*p.x+1 );  // G
-					dst.at<uchar>( y, 3*x+2 ) = src_resize.at<uchar>( p.y, 3*p.x+2 );  // R
+					//dst.at<uchar>( y, 3*x ) = src_resize.at<uchar>( p.y, 3*p.x );      // B
+					//dst.at<uchar>( y, 3*x+1 ) = src_resize.at<uchar>( p.y, 3*p.x+1 );  // G
+					//dst.at<uchar>( y, 3*x+2 ) = src_resize.at<uchar>( p.y, 3*p.x+2 );  // R
+					//GRAY
+					dst.at<uchar>( y, 3*x ) = src_resize.at<uchar>( p.y, p.x );   // B
+					dst.at<uchar>( y, 3*x+1 ) = src_resize.at<uchar>( p.y, p.x);  // G
+					dst.at<uchar>( y, 3*x+2 ) = src_resize.at<uchar>( p.y, p.x);  // R
 				}
 			}
 		}
