@@ -28,7 +28,7 @@ int main()
 	printf("wF‘Ò‹@‚É”’‰æ‘œ‚ğ“Š‰e‚·‚é‚©‚µ‚È‚¢‚©\n");
 	printf("\n");
 
-	pgrOpenCV.init(FlyCapture2::PIXEL_FORMAT_MONO8, FlyCapture2::NEAREST_NEIGHBOR);
+	pgrOpenCV.init(FlyCapture2::PIXEL_FORMAT_MONO8, FlyCapture2::HQ_LINEAR);
 	//pgrOpenCV.setCameraParams(4.0);
 	GRAYCODE gc;
 
